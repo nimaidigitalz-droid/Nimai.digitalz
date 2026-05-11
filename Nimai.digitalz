@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimai Digitalz | We Grow With You</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+            background-color: #ffffff; 
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ---------------------------------
+           DEEP SEA WHALE ANIMATION (Full Page)
+        ---------------------------------- */
+        .ocean-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind content */
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .swimming-whale {
+            position: absolute;
+            background-image: url('input_file_6.png');
+            background-size: 800px auto;
+            opacity: 0.12;
+            filter: grayscale(100%) brightness(1.2);
+        }
+
+        /* Movement Keyframes */
+        @keyframes swimRight {
+            0% { transform: translateX(-300px) translateY(0) rotate(2deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateX(110vw) translateY(-50px) rotate(-2deg); opacity: 0; }
+        }
+
+        @keyframes swimLeft {
+            0% { transform: translateX(110vw) translateY(0) rotate(-2deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateX(-300px) translateY(50px) rotate(2deg); opacity: 0; }
+        }
+
+        /* Whale Types Positioning from input_file_6.png */
+        .whale-blue { width: 280px; height: 100px; background-position: 0px 5px; animation: swimRight 35s infinite linear; top: 5%; }
+        .whale-fin { width: 200px; height: 80px; background-position: 0px 35px; animation: swimLeft 28s infinite linear 5s; top: 20%; }
+        .whale-sei { width: 160px; height: 60px; background-position: 0px 75px; animation: swimRight 32s infinite linear 12s; top: 40%; }
+        .whale-beluga { width: 100px; height: 60px; background-position: 500px 55px; animation: swimLeft 22s infinite linear 2s; top: 60%; }
+        .whale-killer { width: 140px; height: 80px; background-position: 600px 115px; animation: swimRight 15s infinite linear 8s; top: 80%; }
+        .whale-bryde { width: 150px; height: 60px; background-position: 450px 110px; animation: swimLeft 25s infinite linear 15s; top: 92%; }
+
+        /* Bubbles Background */
+        .bubble {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: rise 15s infinite ease-in;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-5000px); opacity: 0; }
+        }
+
+        /* Logo Zoom Entrance */
+        .logo-zoom { 
+            animation: logoPop 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; 
+        }
+        @keyframes logoPop {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .brand-logo-card { transition: all 0.4s ease; filter: grayscale(100%); opacity: 0.6; }
+        .brand-logo-card:hover { transform: scale(1.1) translateY(-5px); filter: grayscale(0%); opacity: 1; }
+
+        .team-whale-icon {
+            background-image: url('input_file_6.png');
+            background-size: 600px auto;
+            border: 4px solid #f0f9ff;
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- FULL PAGE OCEAN ANIMATION LAYER -->
+    <div class="ocean-container" id="ocean">
+        <div class="swimming-whale whale-blue"></div>
+        <div class="swimming-whale whale-fin"></div>
+        <div class="swimming-whale whale-sei"></div>
+        <div class="swimming-whale whale-beluga"></div>
+        <div class="swimming-whale whale-killer"></div>
+        <div class="swimming-whale whale-bryde"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-blue-50 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="input_file_0.png" class="h-10 logo-zoom" alt="Nimai Logo">
+                <span class="font-extrabold text-2xl text-slate-800 tracking-tighter">NIMAI DIGITALZ</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-xs uppercase text-slate-500 tracking-widest">
+                <a href="#about" class="hover:text-blue-600 transition">Agency</a>
+                <a href="#services" class="hover:text-blue-600 transition">Expertise</a>
+                <a href="#team" class="hover:text-blue-600 transition">The Pod</a>
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-slate-900 transition shadow-lg">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6 text-center">
+        <div data-aos="zoom-in" class="max-w-4xl">
+            <img src="input_file_0.png" class="w-32 mx-auto mb-10 logo-zoom" alt="Main Logo">
+            <h1 class="text-6xl md:text-8xl font-black text-slate-900 leading-[1.1] mb-6">
+                We Grow <span class="text-blue-600">With You,</span> For You.
+            </h1>
+            <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto font-medium">
+                We help brands grow through storytelling, strategy, content, websites, and performance marketing.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#work" class="px-10 py-4 bg-slate-900 text-white rounded-2xl font-bold text-lg shadow-2xl hover:scale-105 transition">View Our Work</a>
+                <a href="#contact" class="px-10 py-4 bg-white text-blue-600 border-2 border-blue-100 rounded-2xl font-bold text-lg hover:bg-blue-50 transition">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="zoom-in">
+                <h2 class="text-4xl font-black text-slate-900 mb-4">360° Marketing Support</h2>
+                <div class="w-24 h-1.5 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- SMM -->
+                <div data-aos="zoom-in" class="bg-white p-10 rounded-[2.5rem] border border-blue-50 shadow-xl shadow-blue-900/5 group hover:border-blue-400 transition-all">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fas fa-hashtag"></i></div>
+                    <h3 class="text-2xl font-black text-slate-800 mb-4">Social Media</h3>
+                    <p class="text-slate-500 leading-relaxed">Reels, calendars, captions, and trends designed to connect emotionally with your audience.</p>
+                </div>
+                <!-- Web -->
+                <div data-aos="zoom-in" data-aos-delay="100" class="bg-white p-10 rounded-[2.5rem] border border-blue-50 shadow-xl shadow-blue-900/5 group">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fas fa-code"></i></div>
+                    <h3 class="text-2xl font-black text-slate-800 mb-4">Website Dev</h3>
+                    <p class="text-slate-500 leading-relaxed">Fast, SEO-friendly WordPress and landing pages built to convert visitors into loyal customers.</p>
+                </div>
+                <!-- Performance -->
+                <div data-aos="zoom-in" data-aos-delay="200" class="bg-white p-10 rounded-[2.5rem] border border-blue-50 shadow-xl shadow-blue-900/5 group">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-black text-slate-800 mb-4">Meta Ads</h3>
+                    <p class="text-slate-500 leading-relaxed">Strategy-first performance marketing focused on lead generation and real business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS WALL -->
+    <section id="brands" class="py-24 bg-slate-50 border-y border-blue-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-12" data-aos="zoom-in">Brands That Dive With Us</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
+                <a href="https://www.instagram.com/pavitramdiamondjewellery/" target="_blank" data-aos="zoom-in"><img src="input_file_4.png" class="brand-logo-card mx-auto max-h-16" alt="Pavitram"></a>
+                <a href="https://www.instagram.com/lilavati_jewellers/" target="_blank" data-aos="zoom-in" data-aos-delay="100"><img src="input_file_1.png" class="brand-logo-card mx-auto max-h-14 invert" alt="Lilavati"></a>
+                <a href="https://www.instagram.com/vagadia_jewellers/" target="_blank" data-aos="zoom-in" data-aos-delay="200"><img src="input_file_3.png" class="brand-logo-card mx-auto max-h-16" alt="Vagadia"></a>
+                <a href="https://www.instagram.com/shreepadmavatijewellers_og/" target="_blank" data-aos="zoom-in" data-aos-delay="300"><img src="input_file_5.jpeg" class="brand-logo-card mx-auto max-h-16 rounded" alt="Padmavati"></a>
+                <a href="https://www.instagram.com/altotrading.llp/" target="_blank" data-aos="zoom-in" data-aos-delay="400"><img src="input_file_2.png" class="brand-logo-card mx-auto max-h-12" alt="Alto"></a>
+                <a href="https://www.instagram.com/accuratenetssafety/" target="_blank" data-aos="zoom-in" data-aos-delay="500" class="font-black text-slate-300 brand-logo-card">ACCURATE NETS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM (The Pod) -->
+    <section id="team" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="zoom-in">
+                <h2 class="text-4xl font-black text-slate-900">Meet The Pod</h2>
+                <p class="text-blue-500 font-bold uppercase text-xs tracking-widest mt-2">The creative forces behind the waves</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <!-- Krishna (Blue Whale) -->
+                <div class="text-center" data-aos="zoom-in">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 0px 5px;"></div>
+                    <h4 class="font-black text-slate-800">Krishna Parmar</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Founder & CEO</p>
+                </div>
+                <!-- Mittal (Killer Whale) -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 600px 115px;"></div>
+                    <h4 class="font-black text-slate-800">Mittal Patel</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Co-Founder & Strategic</p>
+                </div>
+                <!-- Saniya (Beluga) -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 500px 55px;"></div>
+                    <h4 class="font-black text-slate-800">Saniya Shah</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Digital Marketer</p>
+                </div>
+                <!-- Vaishnavi (Bryde's) -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 450px 110px;"></div>
+                    <h4 class="font-black text-slate-800">Vaishnavi Thakkar</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Social Media Manager</p>
+                </div>
+                <!-- Deep (Sei Whale) -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 0px 75px;"></div>
+                    <h4 class="font-black text-slate-800">Deep Makwana</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Video Editor</p>
+                </div>
+                <!-- Jay (Fin Whale) -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="aspect-square rounded-full team-whale-icon mb-6 shadow-inner" style="background-position: 0px 35px;"></div>
+                    <h4 class="font-black text-slate-800">Jay Rita</h4>
+                    <p class="text-[10px] uppercase font-bold text-blue-500">Video Editor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <footer id="contact" class="py-32 px-6 bg-slate-900 text-white relative">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <h2 class="text-5xl font-black mb-10 leading-tight">Ready to Take Your Brand to New Depths?</h2>
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <p class="text-blue-400 font-bold uppercase text-xs mb-2">Direct Mail</p>
+                    <a href="mailto:nimaidigitalz@gmail.com" class="text-xl font-bold">nimaidigitalz@gmail.com</a>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <p class="text-blue-400 font-bold uppercase text-xs mb-2">Mumbai Base</p>
+                    <p class="text-xl font-bold">Maharashtra, India</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-10 text-3xl mb-16">
+                <a href="https://www.instagram.com/nimaidigitalz/" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/nimai-digitalz/" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <p class="text-white/30 text-xs font-bold uppercase tracking-[0.5em]">© 2025 NIMAI DIGITALZ • WE GROW WITH YOU</p>
+        </div>
+    </footer>
+
+    <script>
+        // Init Animations
+        AOS.init({ duration: 800, once: true });
+
+        // Add dynamic bubbles for deep sea effect
+        const ocean = document.getElementById('ocean');
+        for (let i = 0; i < 30; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 15 + 5 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * 100 + 'vw';
+            bubble.style.animationDuration = Math.random() * 10 + 10 + 's';
+            bubble.style.animationDelay = Math.random() * 15 + 's';
+            ocean.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>
